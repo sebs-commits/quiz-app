@@ -24,7 +24,18 @@ router.get("/", async (req, res) => {
     res.status(500).send(error);
   }
 });
-
+// Route to get a single quiz by ID
+router.get("/:id", async (req, res) => {
+  try {
+    const quiz = await Quiz.findById(req.params.id);
+    if (!quiz) {
+      return res.status(404).send("Quiz not found.");
+    }
+    res.status(200).send(quiz);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 // Route to delete a quiz
 router.delete("/:id", async (req, res) => {
   try {
@@ -60,7 +71,6 @@ router.patch("/:quizId/questions/:questionId", async (req, res) => {
     const question = quiz.questions.id(req.params.questionId);
     if (!question) return res.status(404).send("Question not found.");
 
-    // Update question text and options based on request body
     if (req.body.questionText) question.questionText = req.body.questionText;
     if (req.body.options) question.options = req.body.options;
 
