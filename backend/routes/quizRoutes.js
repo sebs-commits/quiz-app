@@ -8,7 +8,6 @@ router.post("/", async (req, res) => {
   try {
     const quiz = new Quiz(req.body);
     await quiz.save();
-    res.status(200).send("Quiz Created Successfully");
     res.status(201).send(quiz);
   } catch (error) {
     res.status(400).send(error);
