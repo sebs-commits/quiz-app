@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:5000/api";
+const apiUrl = "http://localhost:5001/api";
 
 // Function to create a new quiz
 export const createQuiz = async (quizData) => {
