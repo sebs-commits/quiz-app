@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getQuizById } from "../api/quizApi";
+import Loading from "../components/Loading";
 
 function Quiz() {
   const { id } = useParams();
@@ -43,7 +44,7 @@ function Quiz() {
     });
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
   if (!quiz) return <p>Quiz not found.</p>;
   return (
