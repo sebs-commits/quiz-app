@@ -52,9 +52,8 @@ export default function NavBar() {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "roboto",
               fontWeight: 700,
-              letterSpacing: ".3rem",
               color: "black",
               textDecoration: "none",
             }}
@@ -93,7 +92,14 @@ export default function NavBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography
+                    textAlign="center"
+                    component={RouterLink}
+                    to={pagePaths[page]}
+                    sx={{ textDecoration: "none", color: "black" }}
+                  >
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -132,7 +138,7 @@ export default function NavBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/3.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
