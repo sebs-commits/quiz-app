@@ -50,9 +50,12 @@ h3 {
   padding: 0.8em 1em;
   margin-bottom: 2em;
   cursor: pointer;
-  transition: box-shadow 0.3s, transform 0.3s;
+  transition: box-shadow 0.1s, transform 0.1s;
 }
 .submit-btn:active {
   box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
   transform: translate(4px, 4px);
+}
+.submit-btn:hover {
+  background-color: hsla(173, 26%, 66%, 2);
 }
