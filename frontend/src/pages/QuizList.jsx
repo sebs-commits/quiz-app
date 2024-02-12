@@ -32,12 +32,16 @@ const QuizzesList = () => {
       {error && <p>Error fetching quizzes: {error}</p>}
 
       {!isLoading && !error && (
-        <ul>
-          <h1>Quizzes</h1>
+        <ul className="grid-container">
           {quizzes.map((quiz) => (
             <li key={quiz._id}>
-              <Link to={`/quizzes/${quiz._id}`}>
-                {quiz.title} {quiz.description}
+              <Link to={`/quizzes/${quiz._id}`} className="quiz-link">
+                <div className="card-container">
+                  <div className="text-container">
+                    <h1>{quiz.title}</h1>
+                    <p>{quiz.description}</p>
+                  </div>
+                </div>
               </Link>
             </li>
           ))}
