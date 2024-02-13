@@ -5,7 +5,6 @@ import Loading from "../components/Loading";
 import "../styles/QuizList.css";
 const QuizzesList = () => {
   const [quizzes, setQuizzes] = useState([]);
-  const [description, setDescription] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
