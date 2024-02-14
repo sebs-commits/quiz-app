@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { createQuiz } from "../api/quizApi";
+import "../styles/Create.css";
+import TextField from "@mui/material/TextField";
 
 export default function CreateQuiz() {
   const [quiz, setQuiz] = useState({
@@ -64,10 +66,25 @@ export default function CreateQuiz() {
     }
   };
   return (
-    <div>
-      <h2>Create a New Quiz</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="main-container">
+      <div className="sub-container">
+        <h2 className="page-title">Create a Quiz</h2>
+        <button type="button" onClick={addQuestion} className="add-btn">
+          Add Question
+        </button>
+      </div>
+
+      <form onSubmit={handleSubmit} className="form-container">
         <label htmlFor="quiz-title">Quiz Title</label>
+        <TextField
+          label="Quiz Title"
+          variant="outlined"
+          id="quiz-title"
+          type="text"
+          value={quiz.title}
+          onChange={handleTitleChange}
+          required
+        />
         <input
           id="quiz-title"
           type="text"
@@ -75,7 +92,6 @@ export default function CreateQuiz() {
           onChange={handleTitleChange}
           required
         />
-
         <label htmlFor="quiz-description">Description</label>
         <input
           id="quiz-description"
@@ -98,12 +114,6 @@ export default function CreateQuiz() {
 
             {question.options.map((option, oIndex) => (
               <div key={oIndex}>
-                <input
-                  type="text"
-                  value={option.text}
-                  onChange={(e) => handleOptionChange(e, qIndex, oIndex)}
-                  required
-                />
                 <label>
                   <input
                     type="radio"
@@ -113,6 +123,12 @@ export default function CreateQuiz() {
                   />
                   {/* {oIndex === question.options.length - 1 ? "Correct" : "Wrong"} */}
                 </label>
+                <input
+                  type="text"
+                  value={option.text}
+                  onChange={(e) => handleOptionChange(e, qIndex, oIndex)}
+                  required
+                />
               </div>
             ))}
           </div>
