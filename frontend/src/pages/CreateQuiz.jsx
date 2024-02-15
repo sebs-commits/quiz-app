@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { createQuiz } from "../api/quizApi";
 import "../styles/Create.css";
-import TextField from "@mui/material/TextField";
 
 export default function CreateQuiz() {
   const [quiz, setQuiz] = useState({
@@ -69,22 +68,13 @@ export default function CreateQuiz() {
     <div className="main-container">
       <div className="sub-container">
         <h2 className="page-title">Create a Quiz</h2>
-        <button type="button" onClick={addQuestion} className="add-btn">
-          Add Question
+        <button type="submit" className="create-btn">
+          Create
         </button>
       </div>
 
       <form onSubmit={handleSubmit} className="form-container">
         <label htmlFor="quiz-title">Quiz Title</label>
-        <TextField
-          label="Quiz Title"
-          variant="outlined"
-          id="quiz-title"
-          type="text"
-          value={quiz.title}
-          onChange={handleTitleChange}
-          required
-        />
         <input
           id="quiz-title"
           type="text"
@@ -134,10 +124,14 @@ export default function CreateQuiz() {
           </div>
         ))}
 
-        <button type="button" onClick={addQuestion}>
-          Add Question
-        </button>
-        <button type="submit">Create Quiz</button>
+        <div className="sub-container">
+          <button type="button" onClick={addQuestion} className="create-btn">
+            Add Question
+          </button>
+          <button type="submit" className="create-btn">
+            Create
+          </button>
+        </div>
       </form>
     </div>
   );

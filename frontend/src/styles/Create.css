@@ -26,7 +26,7 @@ textarea {
   width: 100%;
   padding-top: 0.8em;
 }
-.add-btn {
+.create-btn {
   align-self: self-end;
   background-color: #8abab4;
   border: 2px solid black;
@@ -37,10 +37,14 @@ textarea {
   transition: box-shadow 0.1s, transform 0.1s;
   font-weight: bolder;
 }
-.add-btn:active {
+.create-btn:active {
   box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
   transform: translate(4px, 4px);
 }
-.add-btn:hover {
+.create-btn:hover {
   background-color: hsla(173, 26%, 66%, 2);
+}
+.quiz-title {
+}
+.MuiTextField-root {
 }
