@@ -74,38 +74,44 @@ export default function CreateQuiz() {
       </div>
 
       <form onSubmit={handleSubmit} className="form-container">
-        <label htmlFor="quiz-title">Quiz Title</label>
+        {/* <label htmlFor="quiz-title">Quiz Title</label> */}
         <input
+          className="title-input"
           id="quiz-title"
           type="text"
           value={quiz.title}
           onChange={handleTitleChange}
+          placeholder="Title"
           required
         />
-        <label htmlFor="quiz-description">Description</label>
+        {/* <label htmlFor="quiz-description">Description</label> */}
         <input
+          className="description-input"
           id="quiz-description"
           type="text"
           value={quiz.description}
           onChange={handleDescriptionChange}
+          placeholder="Description"
           required
         />
-
         {quiz.questions.map((question, qIndex) => (
-          <div key={qIndex}>
-            <label htmlFor={`question-${qIndex}`}>Question {qIndex + 1}</label>
+          <div key={qIndex} className="question-div">
+            {/* <label htmlFor={`question-${qIndex}`}>Question {qIndex + 1}</label> */}
             <input
+              className="question-number"
               id={`question-${qIndex}`}
+              placeholder={`Question ${qIndex + 1}`}
               type="text"
               value={question.questionText}
               onChange={(e) => handleQuestionChange(e, qIndex)}
               required
             />
-
+            <hr className="divider"></hr>
             {question.options.map((option, oIndex) => (
-              <div key={oIndex}>
+              <div key={oIndex} className="inner-question-container">
                 <label>
                   <input
+                    className="radio-input"
                     type="radio"
                     name={`correct-option-${qIndex}`}
                     checked={option.isCorrect}
@@ -114,6 +120,7 @@ export default function CreateQuiz() {
                   {/* {oIndex === question.options.length - 1 ? "Correct" : "Wrong"} */}
                 </label>
                 <input
+                  className="option-input"
                   type="text"
                   value={option.text}
                   onChange={(e) => handleOptionChange(e, qIndex, oIndex)}

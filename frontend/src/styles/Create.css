@@ -11,6 +11,18 @@ textarea {
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
 }
+input[type="text"] {
+  /* border: none; Removes border */
+  outline: none; /* Removes focus outline */
+  font-family: inherit; /* Resets font to inherit from parent */
+  line-height: normal; /* Resets line height */
+  box-shadow: none; /* Removes box shadow */
+  -webkit-appearance: none; /* Removes default webkit styling */
+  -moz-appearance: none; /* Removes default Mozilla styling */
+  appearance: none; /* Removes default styling for other browsers */
+  margin: 0.8em;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -44,7 +56,50 @@ textarea {
 .create-btn:hover {
   background-color: hsla(173, 26%, 66%, 2);
 }
-.quiz-title {
+.title-input {
+  background-color: #b4c6e2;
+  padding: 1em;
+  border-radius: 15px;
+  border: none;
 }
-.MuiTextField-root {
+input[type="text"]::placeholder {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  opacity: 1;
+}
+.description-input {
+  background-color: #b4c6e2;
+  padding: 1em;
+  padding-bottom: 4em;
+  border-radius: 15px;
+  border: none;
+}
+.question-div {
+  margin: 0.8em;
+  border-radius: 15px;
+  background-color: #b4c6e2;
+  align-items: center;
+
+  margin-bottom: 1em;
+}
+.question-number {
+  background: transparent;
+  border: none;
+}
+.divider {
+  color: black;
+}
+.inner-question-container {
+  text-align: center;
+}
+/* i cant seem to style the radio buttons */
+input[type="radio"] {
+  outline-color: black;
+}
+.radio-input {
+}
+.option-input {
+  background: transparent;
+  border-style: none;
+  border-bottom: solid 1px black;
 }
