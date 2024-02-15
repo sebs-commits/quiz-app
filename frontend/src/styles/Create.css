@@ -79,7 +79,7 @@ input[type="text"]::placeholder {
   border-radius: 15px;
   background-color: #b4c6e2;
   align-items: center;
-
+  padding-bottom: 0.8em;
   margin-bottom: 1em;
 }
 .question-number {

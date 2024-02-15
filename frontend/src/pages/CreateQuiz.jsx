@@ -122,6 +122,7 @@ export default function CreateQuiz() {
                 <input
                   className="option-input"
                   type="text"
+                  placeholder={`Option ${oIndex + 1}`}
                   value={option.text}
                   onChange={(e) => handleOptionChange(e, qIndex, oIndex)}
                   required
