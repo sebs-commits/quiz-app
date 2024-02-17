@@ -68,7 +68,7 @@ export default function CreateQuiz() {
     <div className="main-container">
       <div className="sub-container">
         <h2 className="page-title">Create a Quiz</h2>
-        <button type="submit" className="create-btn">
+        <button type="submit" className="create-btn" onClick={handleSubmit}>
           Create
         </button>
       </div>

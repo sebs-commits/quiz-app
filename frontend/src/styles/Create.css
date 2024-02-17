@@ -85,6 +85,7 @@ input[type="text"]::placeholder {
 .question-number {
   background: transparent;
   border: none;
+  width: 90%;
 }
 .divider {
   color: black;
