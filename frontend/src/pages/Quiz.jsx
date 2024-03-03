@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getQuizById } from "../api/quizApi";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 import Loading from "../components/Loading";
 import "../styles/Quiz.css";
 
@@ -11,6 +16,15 @@ function Quiz() {
   const [error, setError] = useState("");
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(null);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -60,6 +74,7 @@ function Quiz() {
           onSubmit={(e) => {
             e.preventDefault();
             handleSubmit();
+            handleClickOpen();
           }}
         >
           <ul>
@@ -102,11 +117,18 @@ function Quiz() {
       ) : (
         <p>No questions available for this quiz.</p>
       )}
-      {/* In the future, I will add a model, or some sort of popup displaying the score */}
       {score !== null && (
-        <p>
-          Your score: {score}/{quiz.questions.length}
-        </p>
+        <Dialog open={open} onClose={handleClose}>
+          <DialogTitle>{"Score"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Your score: {score}/{quiz.questions.length}
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <button onClick={handleClose}>Close Alert</button>
+          </DialogActions>
+        </Dialog>
       )}
     </div>
   );
