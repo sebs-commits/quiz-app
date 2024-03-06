@@ -7,8 +7,18 @@ const app = express();
 
 const PORT = process.env.PORT || 5001;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://deploy-mern-1whq.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true,
+  })
+);
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.json("Successfully uploaded backend");
+});
 
 app.use("/api/quizzes", quizRoutes);
 mongoose
