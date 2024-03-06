@@ -84,17 +84,23 @@ function Quiz() {
         >
           <ul>
             {quiz.questions.map((question, questionIndex) => (
-              <div className="question-container">
-                <li key={questionIndex}>
+              <div
+                className="question-container"
+                key={`question-${questionIndex}`}
+              >
+                <li key={`li-question-${questionIndex}`}>
                   <h3>
                     Question {questionIndex + 1}: {question.questionText}
                   </h3>
                   <hr className="divider" />
                   <ul>
                     {question.options.map((option, optionIndex) => (
-                      <div className="selection">
+                      <div
+                        className="selection"
+                        key={`option-container-${questionIndex}-${optionIndex}`}
+                      >
                         <li
-                          key={optionIndex}
+                          key={`option-${questionIndex}-${optionIndex}`}
                           onClick={() =>
                             handleOptionSelect(questionIndex, optionIndex)
                           }
