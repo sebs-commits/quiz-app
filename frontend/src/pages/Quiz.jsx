@@ -22,7 +22,12 @@ function Quiz() {
     setOpen(true);
   };
 
+  // Function to reset the quiz
   const handleClose = () => {
+    window.scrollTo({
+      top: 0,
+    }); // this will scroll user to the top of the page, not sure if this the proper way to reset a quiz but whatevs
+    window.location.reload();
     setOpen(false);
   };
 
@@ -126,7 +131,7 @@ function Quiz() {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <button onClick={handleClose}>Close Alert</button>
+            <button onClick={handleClose}>Restart Quiz</button>
           </DialogActions>
         </Dialog>
       )}
