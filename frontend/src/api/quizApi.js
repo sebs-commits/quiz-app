@@ -1,6 +1,6 @@
-// const apiUrl = "http://localhost:5001/api";
-const apiUrl =
-  "https://quiz-app-api-teal.vercel.app/";
+const apiUrl = "http://localhost:5001/api";
+// const apiUrl = "https://quiz-app-api-teal.vercel.app/";
+// replace above when in development
 // Function to create a new quiz
 export const createQuiz = async (quizData) => {
   try {
