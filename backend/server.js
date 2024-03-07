@@ -7,7 +7,13 @@ const app = express();
 
 const PORT = process.env.PORT || 5001;
 
-app.use(cors());
+const corsOptions = {
+  origin: ["https://quiz-app-seven-sage.vercel.app/", "http://localhost:3000"],
+  optionsSuccessStatus: 200,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+};
+
+app.use(cors(corsOptions)); // Use CORS with options
 app.use(express.json());
 
 app.get("/", (req, res) => {
