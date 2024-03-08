@@ -11,9 +11,10 @@ const corsOptions = {
   origin: ["https://quiz-app-seven-sage.vercel.app/", "http://localhost:3000"],
   optionsSuccessStatus: 200,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
-app.use(cors(corsOptions)); // Use CORS with options
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get("/", (req, res) => {
