@@ -1,5 +1,5 @@
-//const apiUrl = "http://localhost:5001/api";
- const apiUrl = "https://quiz-app-api-szs0.onrender.com";
+const apiUrl = "http://localhost:5001/api";
+//const apiUrl = "https://quiz-app-api-szs0.onrender.com";
 // replace above when in development
 // Function to create a new quiz
 export const createQuiz = async (quizData) => {

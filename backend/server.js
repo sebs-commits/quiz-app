@@ -7,19 +7,8 @@ const app = express();
 
 const PORT = process.env.PORT || 5001;
 
-const corsOptions = {
-  origin: ["https://quiz-app-seven-sage.vercel.app/", "http://localhost:3000"],
-  optionsSuccessStatus: 200,
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.json("Successfully uploaded backend");
-});
 
 app.use("/api/quizzes", quizRoutes);
 mongoose
