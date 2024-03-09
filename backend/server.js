@@ -7,7 +7,11 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+const corsOptions = {
+  origin: "https://quiz-app-ten-theta.vercel.app/",
+};
+app.use(cors(corsOptions));
+// app.use(cors());
 app.use(express.json());
 //test
 app.get("/", (req, res) => {
