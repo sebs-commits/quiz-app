@@ -7,9 +7,18 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+const allowedOrigins = ["http://localhost:3000", "http://127.0.0.1:5173"];
+
 const corsOptions = {
-  origin: "https://quiz-app-ten-theta.vercel.app/",
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
 };
+
 app.use(cors(corsOptions));
 // app.use(cors());
 app.use(express.json());
