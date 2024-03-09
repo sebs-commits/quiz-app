@@ -1,4 +1,4 @@
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5001/api";
+const apiUrl = "http://localhost:3000/api" || process.env.REACT_APP_API_URL;
 // replace above when in development
 // Function to create a new quiz
 export const createQuiz = async (quizData) => {
