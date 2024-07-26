@@ -1,5 +1,5 @@
-const apiUrl =
-  "http://localhost:3000/api" || "https://quiz-app-ezsn.onrender.com";
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000/api";
+// "http://localhost:3000/api" ||
 // replace above when in development
 // Function to create a new quiz
 export const createQuiz = async (quizData) => {

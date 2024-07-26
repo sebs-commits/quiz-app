@@ -12,6 +12,7 @@ const allowedOrigins = [
   "http://127.0.0.1:5173",
   "https://quiz-wwaj6wknk-sebastians-projects-b3cb570a.vercel.app/",
   "http://localhost:3000/api",
+  "https://quiz-app-ezsn.onrender.com",
 ];
 
 const corsOptions = {
