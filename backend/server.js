@@ -5,7 +5,7 @@ const cors = require("cors");
 const quizRoutes = require("./routes/quizRoutes");
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 const allowedOrigins = [
   "http://localhost:3000",
