@@ -1,5 +1,5 @@
 const apiUrl =
-  "https://quiz-app-ezsn.onrender.com" || "http://localhost:3000/api";
+  "http://localhost:3000/api" || "https://quiz-app-ezsn.onrender.com";
 // replace above when in development
 // Function to create a new quiz
 export const createQuiz = async (quizData) => {
