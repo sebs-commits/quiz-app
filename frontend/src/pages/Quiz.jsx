@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getQuizById } from "../api/quizApi";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -18,17 +18,22 @@ function Quiz() {
   const [score, setScore] = useState(null);
   const [open, setOpen] = React.useState(false);
 
+  const navigate = useNavigate();
+
   const handleClickOpen = () => {
     setOpen(true);
   };
 
+  const handleNavigateHome = () => {
+    navigate("/");
+  };
+
   // Function to reset the quiz
   const handleClose = () => {
-    window.scrollTo({
-      top: 0,
-    }); // this will scroll user to the top of the page, not sure if this the proper way to reset a quiz but whatevs
-    window.location.reload();
     setOpen(false);
+    setUserAnswers({});
+    setScore(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -137,7 +142,8 @@ function Quiz() {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <button onClick={handleClose}>Restart Quiz</button>
+            <button onClick={handleClose}>Try Again</button>
+            <button onClick={handleNavigateHome}>Main Page</button>
           </DialogActions>
         </Dialog>
       )}
