@@ -4,10 +4,12 @@ const apiUrl = "http://localhost:3000/api";
 // Function to create a new quiz
 export const createQuiz = async (quizData) => {
   try {
+    const token = localStorage.getItem("token");
     const response = await fetch(`${apiUrl}/quizzes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "x-auth-token": token,
       },
       body: JSON.stringify(quizData),
     });
@@ -34,8 +36,12 @@ export const getQuizzes = async () => {
 // Function to delete a quiz
 export const deleteQuiz = async (id) => {
   try {
+    const token = localStorage.getItem("token");
     const response = await fetch(`${apiUrl}/quizzes/${id}`, {
       method: "DELETE",
+      headers: {
+        "x-auth-token": token,
+      },
     });
     if (!response.ok) throw new Error("Failed to delete quiz");
     return "Quiz deleted successfully";
@@ -48,10 +54,14 @@ export const deleteQuiz = async (id) => {
 // Function to delete a specific quiz question
 export const deleteQuizQuestion = async (quizId, questionId) => {
   try {
+    const token = localStorage.getItem("token");
     const response = await fetch(
       `${apiUrl}/quizzes/${quizId}/questions/${questionId}`,
       {
         method: "DELETE",
+        headers: {
+          "x-auth-token": token,
+        },
       }
     );
     if (!response.ok) throw new Error("Failed to delete question");
@@ -65,12 +75,14 @@ export const deleteQuizQuestion = async (quizId, questionId) => {
 // Function to edit a quiz question
 export const editQuizQuestion = async (quizId, questionId, questionData) => {
   try {
+    const token = localStorage.getItem("token");
     const response = await fetch(
       `${apiUrl}/quizzes/${quizId}/questions/${questionId}`,
       {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
+          "x-auth-token": token,
         },
         body: JSON.stringify(questionData),
       }
